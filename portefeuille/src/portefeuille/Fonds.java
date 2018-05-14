@@ -28,16 +28,16 @@ public class Fonds {
         amount=_amount;
     } 
     
-    /// *** Methodes *** ///
     
-    /**
-     * @param _cle cle du fond que l'on recherche
-     *  si elle n'existe pas on genere une exception
+    /** GTOR 
+     * @return amount
      */
-    public void rechercher_fonds(String _cle)
-    {
-        
+    public double getAmount(){
+        return amount;
     }
+    
+    /// *** Methodes *** ///
+  
     
     
 }

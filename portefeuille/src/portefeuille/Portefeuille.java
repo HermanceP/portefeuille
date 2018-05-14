@@ -46,24 +46,24 @@ public class Portefeuille {
     /**
      * @param _cle cle du fond que l'on recherche
      *  si elle n'existe pas on genere une exception
+     * @return double amount
      * @throws exceptions.FondInexistant
     */
-    public void rechercher_fonds(String _cle)
+    public double rechercher_fonds(String _cle)
             throws FondInexistant
     {
         //on teste si hm_fonds contient la clé passée en parametre
-        boolean b=hm_fonds.containsKey(_cle);
-        
-        if (b==false)
+        if (hm_fonds.containsKey(_cle)==false)
         {
-            //generer une exception
+            //si non : generer une exception
             throw new FondInexistant();
-         
         }
-        else
+        else //si oui :
         {
-              //boolean TRUE si hm_fonds contient la clé
+            double amount;
+            amount=hm_fonds.get(_cle).getAmount();
             //retourner le amount associé a la clé
+            return amount;
         }
         
     }
