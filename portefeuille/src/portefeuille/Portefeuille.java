@@ -62,6 +62,7 @@ public class Portefeuille {
         {
             double amount;
             amount=hm_fonds.get(_cle).getAmount();
+            System.out.println("Amount recherché : " + amount);
             //retourner le amount associé a la clé
             return amount;
         }
