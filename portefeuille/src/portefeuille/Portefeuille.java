@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package portefeuille;
+import exceptions.*;
 
 import java.util.HashMap;
 
@@ -45,20 +46,24 @@ public class Portefeuille {
     /**
      * @param _cle cle du fond que l'on recherche
      *  si elle n'existe pas on genere une exception
+     * @throws exceptions.FondInexistant
     */
     public void rechercher_fonds(String _cle)
+            throws FondInexistant
     {
         //on teste si hm_fonds contient la clé passée en parametre
         boolean b=hm_fonds.containsKey(_cle);
         
-        if (b==true)
+        if (b==false)
         {
-             //boolean TRUE si hm_fonds contient la clé
-            //retourner le amount associé a la clé
+            //generer une exception
+            throw new FondInexistant();
+         
         }
         else
         {
-            //generer une exception
+              //boolean TRUE si hm_fonds contient la clé
+            //retourner le amount associé a la clé
         }
         
     }
