@@ -28,4 +28,12 @@ public class Fonds {
         amount=_amount;
     } 
     
+    /// *** Methodes *** ///
+    
+    public void rechercher_fonds(String _cle)
+    {
+        
+    }
+    
+    
 }

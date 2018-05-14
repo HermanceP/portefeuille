@@ -22,5 +22,21 @@ public class Instrument {
         valeurs=new ArrayList();
     }
     
+    /** CTOR
+     * @param _valeurs
+    */
+    public Instrument(ArrayList<Fonds> _valeurs)
+    {
+        valeurs=_valeurs;
+    } 
+    
+    // ***** Methodes ******
+    
+    /**
+     * @param _f le fond a ajouter a notre ArrayList */
+    public void ajouter_fonds(Fonds _f)
+    {
+        valeurs.add(_f);
+    }
     
 }
