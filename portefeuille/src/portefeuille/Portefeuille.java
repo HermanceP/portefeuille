@@ -38,6 +38,31 @@ public class Portefeuille {
         hm_instrument=_hm_instrument;
     } 
    
+      
+    /// *** Methodes *** ///
+  
+    
+    /**
+     * @param _cle cle du fond que l'on recherche
+     *  si elle n'existe pas on genere une exception
+    */
+    public void rechercher_fonds(String _cle)
+    {
+        //on teste si hm_fonds contient la clé passée en parametre
+        boolean b=hm_fonds.containsKey(_cle);
+        
+        if (b==true)
+        {
+             //boolean TRUE si hm_fonds contient la clé
+            //retourner le amount associé a la clé
+        }
+        else
+        {
+            //generer une exception
+        }
+        
+    }
+    
     
     
     

@@ -30,6 +30,10 @@ public class Fonds {
     
     /// *** Methodes *** ///
     
+    /**
+     * @param _cle cle du fond que l'on recherche
+     *  si elle n'existe pas on genere une exception
+     */
     public void rechercher_fonds(String _cle)
     {
         
