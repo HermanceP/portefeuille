@@ -13,7 +13,7 @@ public class FondInexistant extends Exception{
     
     public FondInexistant()
     {
-        
+        System.out.println("Ce fond n'existe pas!");
     }
     
 }
