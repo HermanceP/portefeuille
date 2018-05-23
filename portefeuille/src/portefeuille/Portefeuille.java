@@ -43,18 +43,19 @@ public class Portefeuille {
       
     /// *** Methodes *** ///
   
+    /************************ FONDS  */
     
     /**
-     * @param _cle cle du fond que l'on recherche
+     * @param _key cle du fond que l'on recherche
      *  si elle n'existe pas on genere une exception
      * @return double amount
      * @throws exceptions.FondInexistant
     */
-    public double rechercher_fonds(String _cle)
+    public double rechercher_fonds(String _key)
             throws FondInexistant
     {
         //on teste si hm_fonds contient la clé passée en parametre
-        if (hm_fonds.containsKey(_cle)==false)
+        if (hm_fonds.containsKey(_key)==false)
         {
             //si non : generer une exception
             throw new FondInexistant();
@@ -62,13 +63,23 @@ public class Portefeuille {
         else //si oui :
         {
             double amount;
-            amount=hm_fonds.get(_cle).getAmount();
+            amount=hm_fonds.get(_key).getAmount();
             System.out.println("Amount recherché : " + amount);
             //retourner le amount associé a la clé
             return amount;
-        }
-        
+        }   
     }
+    
+    /** méthode qui instancie et ajoute un nouveau fonds dans la HashMap des fonds
+     * @param _key cle a ajouter
+     * @param _amount montant du fond a ajouter
+     * @throws exceptions.FondExistant */
+    public void nouveau_fond(String _key, double _amount) throws FondExistant
+    {
+       
+    }
+    
+    /************************ INSTRUMENTS */
     
     public ArrayList<Fonds> rechercher_instrument(String cle) throws InstrumentInexistant {
         if(hm_instrument.containsKey(cle)){
