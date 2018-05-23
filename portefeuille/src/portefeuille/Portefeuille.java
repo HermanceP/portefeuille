@@ -8,6 +8,7 @@ import exceptions.*;
 import java.util.ArrayList;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 /**
  *
@@ -86,6 +87,20 @@ public class Portefeuille {
             Fonds f=new Fonds(_key, _amount);
             hm_fonds.put(_key, f); //que l'on ajoute dans la hashmap
         }
+    }
+    
+    /**
+     * methode qui ajoute un nouveau fonds a un instrument
+     * @param _key
+     * @param f
+     * @throws InstrumentInexistant 
+     */
+    public void nouveau_fonds_inst(String _key, Fonds f) throws InstrumentInexistant{
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Donnez la coordonnee x ");
+        int key=scanner.nextInt();
+        
+        //rechercher_instrument(key);
     }
     
     /************************ INSTRUMENTS */
