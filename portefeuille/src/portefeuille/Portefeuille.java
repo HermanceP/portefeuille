@@ -88,10 +88,19 @@ public class Portefeuille {
      */
     public void nouveau_fonds_inst(String _key, Fonds f) throws InstrumentInexistant{
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Donnez la coordonnee x ");
-        int key=scanner.nextInt();
+        System.out.println("Donnez la cle ");
+        String key=scanner.next();
         
-        //rechercher_instrument(key);
+        try{
+            ArrayList<Fonds> v;
+            v=new ArrayList();
+            v=rechercher_instrument(key);
+        }
+        catch(InstrumentInexistant e ){
+            Instrument i;
+            i=new Instrument();
+            hm_instrument.put(key, i);
+        }
     }
     
     /************************ INSTRUMENTS */
