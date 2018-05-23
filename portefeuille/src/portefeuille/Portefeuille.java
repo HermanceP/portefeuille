@@ -76,7 +76,16 @@ public class Portefeuille {
      * @throws exceptions.FondExistant */
     public void nouveau_fond(String _key, double _amount) throws FondExistant
     {
-       
+        //si la hashmap contient deja la cle :
+         if (hm_fonds.containsKey(_key)!=false)
+        {
+            throw new FondExistant();
+        }
+         else //sinon
+        {   //on instancie un fond
+            Fonds f=new Fonds(_key, _amount);
+            hm_fonds.put(_key, f); //que l'on ajoute dans la hashmap
+        }
     }
     
     /************************ INSTRUMENTS */
