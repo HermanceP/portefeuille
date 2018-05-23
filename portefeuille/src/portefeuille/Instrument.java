@@ -39,4 +39,8 @@ public class Instrument {
         valeurs.add(_f);
     }
     
+    public ArrayList<Fonds> getValeur(){
+        return valeurs;
+    }
+    
 }

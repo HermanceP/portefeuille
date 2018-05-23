@@ -5,6 +5,7 @@
  */
 package portefeuille;
 import exceptions.*;
+import java.util.ArrayList;
 
 import java.util.HashMap;
 
@@ -69,6 +70,13 @@ public class Portefeuille {
         
     }
     
+    public ArrayList<Fonds> rechercher_instrument(String cle) throws InstrumentInexistant {
+        if(hm_instrument.containsKey(cle)){
+            return hm_instrument.get(cle).getValeur();
+        }else{
+            throw new InstrumentInexistant();
+        }
+    }
     
     
 }
