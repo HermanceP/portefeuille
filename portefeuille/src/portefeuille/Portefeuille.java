@@ -97,8 +97,8 @@ public class Portefeuille {
      */
     public void nouveau_fonds_inst(String _key, Fonds f) throws InstrumentInexistant{
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Donnez la coordonnee x ");
-        int key=scanner.nextInt();
+        System.out.println("Donnez la cle ");
+        String key=scanner.next();
         
         //rechercher_instrument(key);
     }
