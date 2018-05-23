@@ -13,21 +13,23 @@ import java.util.ArrayList;
  */
 public class Instrument {
     private ArrayList<Fonds> valeurs;
-    
+    private String key_i;
     
     /** CTOR par defaut
     */
     public Instrument()
     {
         valeurs=new ArrayList();
+        key_i="";
     }
     
     /** CTOR
      * @param _valeurs
     */
-    public Instrument(ArrayList<Fonds> _valeurs)
+    public Instrument(String _key_i,ArrayList<Fonds> _valeurs)
     {
         valeurs=_valeurs;
+        key_i=_key_i;
     } 
     
     // ***** Methodes ******
@@ -41,6 +43,10 @@ public class Instrument {
     
     public ArrayList<Fonds> getValeur(){
         return valeurs;
+    }
+    
+    public String getKey_i(){
+        return key_i;
     }
     
 }

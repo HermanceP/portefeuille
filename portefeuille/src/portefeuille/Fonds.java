@@ -12,20 +12,23 @@ package portefeuille;
 public class Fonds {
     
     private double amount;
+    private String key_f;
     
       /** CTOR par defaut
      */
     public Fonds()
     {
         amount=0;
+        key_f="";
     }
     
       /** CTOR
      * @param _amount 
      */
-    public Fonds(double _amount)
+    public Fonds(String _key_f,double _amount)
     {
         amount=_amount;
+        key_f = _key_f;
     } 
     
     
@@ -34,6 +37,10 @@ public class Fonds {
      */
     public double getAmount(){
         return amount;
+    }
+    
+    public String getKey_f(){
+        return key_f;
     }
     
     /// *** Methodes *** ///
