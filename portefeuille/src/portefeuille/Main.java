@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package portefeuille;
+import exceptions.FondExistant;
 import exceptions.FondInexistant;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ import java.util.Scanner;
 public class Main {
     
 
-    public static void main(String[] args) throws FondInexistant {
+    public static void main(String[] args) throws FondInexistant, FondExistant {
         // TODO code application logic here
         
         Scanner sc = new Scanner(System.in);
@@ -27,7 +28,20 @@ public class Main {
         System.out.println("Insérer une valeur :");
         int amount = sc.nextInt();
         System.out.println("Vous avez rentré : " + amount);
-        double rechercher_fonds = p.rechercher_fonds(key);
-
+        
+        try {
+            //on essaie de lancer une recherche avec la clé rentrée
+            double search = p.rechercher_fonds(key);
+            //si elle existe, rechercher_fond ne génère pas d'exception
+            //mais on génere une exception ici :
+            throw new FondExistant();
+            
+        }catch(FondInexistant i) //si le fond n'existe pas : 
+        {
+            //on peut le créer et l'ajouter a la hashmap
+            p.nouveau_fond(key, amount);
+        }
+        
+        System.out.println("wouahous");
     }
 }
