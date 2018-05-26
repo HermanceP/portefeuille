@@ -11,6 +11,6 @@ package exceptions;
  */
 public class InstrumentInexistant extends Exception{
     public InstrumentInexistant(){
-        
+         System.out.println("Cet instrument n'existe pas!");
     }
 }

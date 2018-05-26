@@ -141,4 +141,12 @@ public class Portefeuille {
     }
     
     
+    
+    /**
+     * @param _key  */
+    public void supprimer_instrument(String _key)
+    {
+       
+    }
+    
 }
