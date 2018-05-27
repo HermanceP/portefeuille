@@ -123,11 +123,22 @@ public class Portefeuille {
      * @throws InstrumentInexistant 
      */
     public void nouveau_fonds_inst(String _key, Fonds f) throws InstrumentInexistant{
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Donnez la cle ");
-        String key=scanner.next();
+        //Scanner scanner = new Scanner(System.in);
+        //System.out.println("Donnez la cle ");
+        //String key=scanner.next();
         
-        //rechercher_instrument(key);
+        try{
+            ArrayList<Fonds> v;
+            v=new ArrayList();
+            v=rechercher_instrument(_key);
+        }
+        catch(InstrumentInexistant e ){
+            Instrument i;
+            i=new Instrument();
+            hm_instrument.put(_key, i);
+        }
+        
+        hm_instrument.get(_key).ajouter_fonds(f);
     }
     
     /************************ INSTRUMENTS */
