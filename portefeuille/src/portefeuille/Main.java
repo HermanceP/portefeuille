@@ -6,6 +6,7 @@
 package portefeuille;
 import exceptions.FondExistant;
 import exceptions.FondInexistant;
+import exceptions.InstrumentInexistant;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Scanner;
 public class Main {
     
 
-    public static void main(String[] args) throws FondInexistant, FondExistant {
+    public static void main(String[] args) throws FondInexistant, FondExistant, InstrumentInexistant {
         // TODO code application logic here
         
         Scanner sc = new Scanner(System.in);
@@ -27,6 +28,9 @@ public class Main {
         System.out.println("2 - Supprimer un fond");
         System.out.println("3 - Ajouter un instrument");
         System.out.println("4 - Supprimer un instrument");
+        
+        System.out.println("\n  Rentrez un chiffre : ");
+        
         choice=sc.nextInt();
         sc.nextLine(); //pour clear le sc
         
@@ -51,7 +55,12 @@ public class Main {
             break;
             
             case 3: //ajouter un instrument
-                
+
+                System.out.println("Donnez la cle ");
+                key = sc.next();
+                Fonds f=new Fonds();
+                p.nouveau_fonds_inst(key, f);
+
             break;
             
             case 4: //supprimer un instrument
@@ -61,7 +70,8 @@ public class Main {
             default:
                 System.out.println("Veuillez rentrer un chiffre correct");
         }
-                
-      
+        
+        System.out.println("wouahous");
+     
     }
 }
