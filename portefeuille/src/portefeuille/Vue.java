@@ -5,6 +5,7 @@
  */
 package portefeuille;
 
+import exceptions.FondInexistant;
 import java.util.HashMap;
 import java.util.*;
 
@@ -25,7 +26,6 @@ public class Vue {
     {
         //on récupère les clés de la hashmap instrument
         Set<String> keys=p.get_hm_inst().keySet();
-        System.out.println("Keys: " + keys);
         
         //itérateur pour chaque valeur du Set keys : 
         for (String s : keys) {
@@ -48,9 +48,56 @@ public class Vue {
         
     }
     
-    public void afficher_pourcentage(String _cle_fond)
+    /**
+     * @param _cle_fond
+    */
+    public void afficher_pourcentage(String _cle_fond) throws FondInexistant
     {
-        //j'ai rien compris mais faut que je revoie le mail
+        p.rechercher_fonds(_cle_fond);
+        
+        //afficher le pourcentage de chaque instrument pour ce fond
+        
+        
+        HashMap<String, Instrument> i=p.get_hm_inst();
+        //on récupère les clés de la hashmap instrument
+        Set<String> key_inst=p.get_hm_inst().keySet();
+        
+        int nb_fonds=0;
+        int nb_inst=0;
+        boolean inst=false;
+        
+        
+        //itérateur pour chaque valeur du Set keys : 
+        for (String s : key_inst) {
+            
+            //on recupere l'array list de fonds associé à l'instrument pointé par l'itérateur
+            ArrayList<Fonds> f;
+            f=i.get(s).getValeur();
+            
+            //on parcours l'array de fonds de l'instrument
+            for (int j=0; j<f.size(); j++)
+            {
+                //si on a un fond sur cet instrument
+                if (f.get(j).getKey_f() == _cle_fond)
+                {
+                    nb_fonds++;
+                    inst=true;
+                }
+            }
+            
+            if (inst==true)
+            {
+                nb_inst++;
+            }
+            
+        }
+        
+        //calcul du pourcentage
+        
+        double pourcentage= (double)nb_fonds/nb_inst;
+        System.out.println("pourcentage : " + pourcentage);
+        
+        
     }
     
     
