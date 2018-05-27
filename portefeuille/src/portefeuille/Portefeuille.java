@@ -43,6 +43,12 @@ public class Portefeuille {
    
       
     /// *** Methodes *** ///
+    
+    public HashMap<String, Instrument> get_hm_inst()
+    {
+        return hm_instrument;
+    }
+    
   
     /************************ FONDS  */
     
