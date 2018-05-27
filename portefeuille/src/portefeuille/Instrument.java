@@ -41,6 +41,18 @@ public class Instrument {
         valeurs.add(_f);
     }
     
+    /**
+     * cette methode trie la collection de Fonds par montant
+     */
+    public void trie_collection(){
+        for(int i=0; i<valeurs.size(); i++){
+            Fonds v1=valeurs.get(i);
+            Fonds v2=valeurs.get(i+1);
+            //Collections.sort(valeurs, v1.compareTo(v2));
+        }
+        
+    }
+    
     public ArrayList<Fonds> getValeur(){
         return valeurs;
     }

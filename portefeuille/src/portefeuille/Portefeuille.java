@@ -97,6 +97,7 @@ public class Portefeuille {
               //on instancie un fond
             Fonds f=new Fonds(_key, _amount);
             hm_fonds.put(_key, f); //que l'on ajoute dans la hashmap
+            System.out.println("Le nouveau fond a ete cree");
         }   
     }
     
@@ -111,6 +112,7 @@ public class Portefeuille {
             //si elle existe, rechercher_fond ne génère pas d'exception
             //on peut alors supprimer le fond de la hash map
             hm_fonds.remove(_key);
+            System.out.println("Ce fond a ete supprime \n");
             
         }catch(FondInexistant i) //si le fond n'existe pas : 
         {
@@ -142,9 +144,11 @@ public class Portefeuille {
             Instrument i;
             i=new Instrument();
             hm_instrument.put(_key, i);
+             System.out.println("Le nouvel instrument a ete cree et ajoute au porte feuille ");
         }
         
         hm_instrument.get(_key).ajouter_fonds(f);
+        System.out.println("le fond a ete ajoute a l'instrument \n");
     }
     
     /************************ INSTRUMENTS */
@@ -163,7 +167,22 @@ public class Portefeuille {
      * @param _key  */
     public void supprimer_instrument(String _key)
     {
-       
+       //si la hashmap contient deja la cle :
+        try {
+            //on essaie de lancer une recherche avec la clé rentrée
+            ArrayList<Fonds> v;
+            //v=new ArrayList();
+            v=rechercher_instrument(_key);
+            //si elle existe, rechercher_instrument ne génère pas d'exception
+            //on peut alors vider sa collection de fonds
+            v.clear();
+            //ensuite on supprime l'instrument de la hash map
+            hm_instrument.remove(_key);
+            
+        }catch(InstrumentInexistant i) //si le fond n'existe pas : 
+        {
+            System.out.println("Cet instrument n'existe pas : on ne peut pas le supprimer. \n");
+        }
     }
     
 }
