@@ -6,34 +6,40 @@
 package portefeuille;
 
 import java.lang.Comparable;
+import java.util.*;
 
 /**
- * 
- * 
- * 
- * 
- * 
- * 
- * J 'AI RIEN COMPRIS A CELUI LA
- * 
- * 
- * 
- * 
- * 
  * @author Tao Tuong Vi
  */
-public class Compare implements Comparable<Fonds>{
+
+
+// jsuis pas sure pour le extends Fonds
+public class Compare extends Fonds implements Comparable<Fonds>{
 
     //on redefinit equals de Object
     public boolean equals(Fonds f)
     {
-        return false;
-        
+        if (this.getAmount()==f.getAmount())
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     @Override
     public int compareTo(Fonds f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.getAmount()>f.getAmount())
+        {
+            return 1;
+        }
+        else if ( equals (f) ) {
+            return 0;
+        }
+        else {
+            return -1;
+        }
     }
     
 }
