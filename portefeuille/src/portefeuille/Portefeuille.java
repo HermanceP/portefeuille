@@ -78,16 +78,43 @@ public class Portefeuille {
     public void nouveau_fond(String _key, double _amount) throws FondExistant
     {
         //si la hashmap contient deja la cle :
-         if (hm_fonds.containsKey(_key)!=false)
-        {
+        try {
+            //on essaie de lancer une recherche avec la clé rentrée
+            double search = rechercher_fonds(_key);
+            //si elle existe, rechercher_fond ne génère pas d'exception
+            //mais on génere une exception ici :
             throw new FondExistant();
-        }
-         else //sinon
-        {   //on instancie un fond
+            
+        }catch(FondInexistant i) //si le fond n'existe pas : 
+        {
+            //on peut le créer et l'ajouter a la hashmap
+              //on instancie un fond
             Fonds f=new Fonds(_key, _amount);
             hm_fonds.put(_key, f); //que l'on ajoute dans la hashmap
+        }   
+    }
+    
+    /**
+     * @param _key */
+    public void supprimer_fond(String _key)
+    {
+         //si la hashmap contient deja la cle :
+        try {
+            //on essaie de lancer une recherche avec la clé rentrée
+            double search = rechercher_fonds(_key);
+            //si elle existe, rechercher_fond ne génère pas d'exception
+            //on peut alors supprimer le fond de la hash map
+            hm_fonds.remove(_key);
+            
+        }catch(FondInexistant i) //si le fond n'existe pas : 
+        {
+            System.out.println("Ce fond n'existe pas : on ne peut pas le supprimer.");
         }
     }
+    
+    
+    
+    
     
     /**
      * methode qui ajoute un nouveau fonds a un instrument
@@ -96,11 +123,22 @@ public class Portefeuille {
      * @throws InstrumentInexistant 
      */
     public void nouveau_fonds_inst(String _key, Fonds f) throws InstrumentInexistant{
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Donnez la cle ");
-        String key=scanner.next();
+        //Scanner scanner = new Scanner(System.in);
+        //System.out.println("Donnez la cle ");
+        //String key=scanner.next();
         
-        //rechercher_instrument(key);
+        try{
+            ArrayList<Fonds> v;
+            v=new ArrayList();
+            v=rechercher_instrument(_key);
+        }
+        catch(InstrumentInexistant e ){
+            Instrument i;
+            i=new Instrument();
+            hm_instrument.put(_key, i);
+        }
+        
+        hm_instrument.get(_key).ajouter_fonds(f);
     }
     
     /************************ INSTRUMENTS */
@@ -113,5 +151,13 @@ public class Portefeuille {
         }
     }
     
+    
+    
+    /**
+     * @param _key  */
+    public void supprimer_instrument(String _key)
+    {
+       
+    }
     
 }
