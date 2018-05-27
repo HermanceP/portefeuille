@@ -62,7 +62,6 @@ public class Main {
             default:
                 System.out.println("Veuillez rentrer un chiffre correct");
         }
-<<<<<<< HEAD
         
         System.out.println("wouahous");
         
@@ -75,9 +74,7 @@ public class Main {
         } catch(InstrumentInexistant e ){
             System.out.println("problemm");
         }
-=======
                 
->>>>>>> 751dd687771615d8b25afc294d8187f4ba123780
       
     }
 }
