@@ -66,7 +66,10 @@ public class Main {
                     break;
 
                 case 4: //supprimer un instrument
-
+                    System.out.println("Insérer une clé pour supprimer l'instrument :");
+                    key = sc.nextLine();
+                    System.out.println("Vous avez rentré : " + key);
+                    p.supprimer_instrument(key);
                     break;
 
                 default:
