@@ -22,6 +22,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Portefeuille p = new Portefeuille();
         Instrument i=new Instrument();
+        
+        Vue v= new Vue(p);
 
         System.out.println("\t -- Bienvenue dans notre gestionnaire de portefeuille -- \n");
         int choice;
@@ -29,7 +31,7 @@ public class Main {
         do {
             System.out.println("1 - Ajouter un fond");
             System.out.println("2 - Supprimer un fond");
-            System.out.println("3 - Ajouter un instrument");
+            System.out.println("3 - Ajouter un fond à un instrument");
             System.out.println("4 - Supprimer un instrument");
             System.out.println("5 - Trier la collection de fonds d'un instrument");
             System.out.println("6 - Exit");
@@ -58,12 +60,16 @@ public class Main {
                     System.out.println("Vous avez rentré : " + key);
                     break;
 
-                case 3: //ajouter un instrument
+                case 3: //ajouter un fond à un instrument
 
-                    System.out.println("Donnez la cle ");
+                    System.out.println("Donnez la cle pour l'instrument");
                     key = sc.next();
-                    Fonds f = new Fonds();
-                    p.nouveau_fonds_inst(key, f);
+                    
+                    
+                    System.out.println("Insérer la clé du fond à ajouter :");
+                    //soit on ajoute un novueau fond, soit on prend une clé existantes
+                    
+                //    p.nouveau_fonds_inst(key, f);
 
                     break;
 
@@ -75,10 +81,13 @@ public class Main {
                     break;
                     
                 case 5:
-                    System.out.println("Insérer une clé pour supprimer l'instrument :");
+                    
+                    v.afficher_fonds_inst();
+                    System.out.println("Insérer une clé pour trier l'instrument :");
                     key = sc.nextLine();
                     System.out.println("Vous avez rentré : " + key);
                     i.trie_collection();
+                    v.afficher_fonds_inst();
                     break;
 
                 default:
