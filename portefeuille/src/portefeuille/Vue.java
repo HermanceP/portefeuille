@@ -94,7 +94,7 @@ public class Vue {
         
         //calcul du pourcentage
         
-        double pourcentage= (double)nb_fonds/nb_inst;
+        double pourcentage= (double)nb_fonds*100 /nb_inst;
         System.out.println("pourcentage : " + pourcentage);
         
         
