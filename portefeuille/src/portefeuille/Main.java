@@ -21,6 +21,7 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         Portefeuille p = new Portefeuille();
+        Instrument i=new Instrument();
 
         System.out.println("\t -- Bienvenue dans notre gestionnaire de portefeuille -- \n");
         int choice;
@@ -30,7 +31,8 @@ public class Main {
             System.out.println("2 - Supprimer un fond");
             System.out.println("3 - Ajouter un instrument");
             System.out.println("4 - Supprimer un instrument");
-            System.out.println("5 - Exit");
+            System.out.println("5 - Trier la collection de fonds d'un instrument");
+            System.out.println("6 - Exit");
 
             System.out.println("\n  Rentrez un chiffre : ");
 
@@ -71,11 +73,18 @@ public class Main {
                     System.out.println("Vous avez rentré : " + key);
                     p.supprimer_instrument(key);
                     break;
+                    
+                case 5:
+                    System.out.println("Insérer une clé pour supprimer l'instrument :");
+                    key = sc.nextLine();
+                    System.out.println("Vous avez rentré : " + key);
+                    i.trie_collection();
+                    break;
 
                 default:
                     System.out.println("Veuillez rentrer un chiffre correct");
             }
-        } while (choice != 5);
+        } while (choice != 6);
 
         System.out.println("wouahous");
 
