@@ -9,7 +9,7 @@ package portefeuille;
  *
  * @author Tao Tuong Vi
  */
-public class Fonds {
+public class Fonds extends Compare{
     
     private double amount;
     private String key_f;
@@ -18,6 +18,7 @@ public class Fonds {
      */
     public Fonds()
     {
+        super();
         amount=0;
         key_f="";
     }
@@ -27,6 +28,7 @@ public class Fonds {
      */
     public Fonds(String _key_f,double _amount)
     {
+        super(_key_f,_amount);
         amount=_amount;
         key_f = _key_f;
     } 

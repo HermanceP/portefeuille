@@ -6,6 +6,7 @@
 package portefeuille;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -46,11 +47,11 @@ public class Instrument {
      */
     public void trie_collection(){
         for(int i=0; i<valeurs.size(); i++){
-            Fonds v1=valeurs.get(i);
-            Fonds v2=valeurs.get(i+1);
-            //Collections.sort(valeurs, v1.compareTo(v2));
+            //double v1=valeurs.get(i).getAmount();
+            //double v2=valeurs.get(i+1).getAmount();
+            //int resultat=equals(v1,v2);
+            Collections.sort(valeurs);
         }
-        
     }
     
     public ArrayList<Fonds> getValeur(){
