@@ -14,13 +14,27 @@ import java.io.Serializable;
 
 public class Serialize implements Serializable{
     
+    Portefeuille p;
+    
     /** CTOR */
     public Serialize()
     {
+        
+        
         
     }
     
     //methodes
     
+    /** */
+    public void serialize_portefeuille()
+    {
+        
+    }
     
+    /** */
+    public void deserialize_portefeuille()
+    {
+        
+    } 
 }
